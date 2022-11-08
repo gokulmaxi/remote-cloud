@@ -38,6 +38,18 @@ services:
       - 27017:27017
     networks:
       - backend
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile.prod
+    container_name: remote-front
+    ports:
+      - 5555:80
+    depends_on:
+      - flask
+    networks:
+      - frontend
+
   nginx:
     build: ./nginx/
     ports:
@@ -46,6 +58,7 @@ services:
       - frontend
       - backend
       - containers
+
 
 
 networks:
