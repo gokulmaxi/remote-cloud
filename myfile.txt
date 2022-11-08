@@ -1,0 +1,31 @@
+
+ location /remote/63636902875aa0264d717436/ {
+   proxy_pass https://remote_191MC126:6901/;
+   proxy_set_header Upgrade $http_upgrade;
+   proxy_set_header Connection $connection_upgrade;
+
+   # proxy_ssl_session_reuse off;
+   # proxy_set_header Host $http_host;
+   # proxy_cache_bypass $http_upgrade;
+ }
+ location /63636902875aa0264d717436/websockify{
+    proxy_pass https://remote_191MC126:6901/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+    proxy_set_header Host $host;}
+ location /remote/63636903875aa0264d717437/ {
+   proxy_pass https://remote_191CT120:6901/;
+   proxy_set_header Upgrade $http_upgrade;
+   proxy_set_header Connection $connection_upgrade;
+
+   # proxy_ssl_session_reuse off;
+   # proxy_set_header Host $http_host;
+   # proxy_cache_bypass $http_upgrade;
+ }
+ location /63636903875aa0264d717437/websockify{
+    proxy_pass https://remote_191CT120:6901/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+    proxy_set_header Host $host;}
