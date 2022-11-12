@@ -19,5 +19,5 @@ def create_user():
     raw_data = request.get_json()
     user = raw_data["email"]
     id = db.db.users.find_one({"email": user})
-    data = parse_json(id)
+    data = parse_json(id["_id"])
     return jsonify(data)
